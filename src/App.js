@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Product from './components/product/product';
+import Header from './components/Header/Header';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import Checkout from './components/Checkout/Checkout';
+import { useSelector } from 'react-redux';
+
+
+
+// Add the FontAwesome icon to the library
+library.add(faCartShopping);
 
 function App() {
+
+  const change=useSelector((data)=>data.cart)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+  <Header></Header> 
+   {  change.BUTTON &&<Product url='https://fakestoreapi.com/products/'></Product> }
+      {!(change.BUTTON)&&<Checkout/>}
+      
+    </>
   );
 }
 
