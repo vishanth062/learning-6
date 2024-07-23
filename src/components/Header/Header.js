@@ -4,10 +4,12 @@ import Cart from './Cart'
 const Header=()=>{
 return (
     <>
-    <header className='flex justify-between'>
-    <img src={logo} className='max-h-[200px] max-w-[200px]' />
+    <div className='pb-10 sticky top-0 z-10   '>
+    <div className='flex justify-between px-4 shadow-md bg-white pr-4 pl-4'>
+    <img src={logo} className='h-20' />
     <Cart/>
-    </header>
+    </div>
+    </div>
     </>
 )
 }

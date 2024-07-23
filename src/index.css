@@ -5,7 +5,7 @@
 @layer{
 
   body{
-    @apply  p-4 bg-[#f3f4f6] 
+    @apply   bg-[#f3f4f6]
   }
 }
 

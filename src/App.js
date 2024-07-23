@@ -4,6 +4,7 @@ import Product from './components/product/product';
 import Header from './components/Header/Header';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+
 import Checkout from './components/Checkout/Checkout';
 import { useSelector } from 'react-redux';
 

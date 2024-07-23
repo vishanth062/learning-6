@@ -1,11 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 
-import { incrementData,getValue } from "../../store/Redux";
+import { incrementData,getValue,toggale } from "../../store/Redux";
 import { useState, useEffect } from "react";
 
 const Button = ({ data, id }) => {
   const [value, setvalue] = useState(true);
+
+ function handleToggle(){
+  Dispatch(toggale())
+ }
+
   const Dispatch = useDispatch();
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem("data"));
@@ -34,8 +39,8 @@ const Button = ({ data, id }) => {
         </button>
       ) : (
         <button
-          className="bg-green-700 p-2 m-2 text-white rounded-lg pointer-events-none hover:bg-green-300 "
-          onClick={handleDispatch}
+          className="bg-green-700 p-2 m-2 text-white rounded-lg  hover:bg-green-300 "
+          onClick={handleToggle}
         >
           <FontAwesomeIcon
             icon="fa-solid fa-cart-shopping"
