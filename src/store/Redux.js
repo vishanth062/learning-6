@@ -36,6 +36,7 @@ const cart=createSlice({
             state.data = [...state.data, action.payload]; 
       localStorage.setItem('data', JSON.stringify(state.data));
      
+     
         },
 
         decrementData:(state,action)=>{
@@ -61,6 +62,10 @@ const cart=createSlice({
             },
 
             remove:(state,action)=>{
+                if(action.payload===-1){
+                    state.data.length=0
+                    return state
+                }
               const newData=state.data.filter((DATA)=>DATA.id!==action.payload.id)
               localStorage.setItem('data',  JSON.stringify([...newData]))
                return{
@@ -75,12 +80,29 @@ const cart=createSlice({
 )
 export const {incrementData,decrementData,toggale,remove}=cart.actions;
 
+const OFFER=createSlice({
+    initialState:0,
+    name:'OFFER',
+    reducers:{
+        change:(state,action)=>{
+           
+            return action.payload !== undefined ? action.payload : state;
+        }
+    }
+
+})
+
+export const{change}=OFFER.actions
+
 const store=configureStore({
     reducer:{
     counter:counter.reducer,
-    cart:cart.reducer
+    cart:cart.reducer,
+    OFFER:OFFER.reducer
     }
 })
+
+
 
 export default store
 

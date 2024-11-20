@@ -9,9 +9,13 @@ import Checkout from './components/Checkout/Checkout';
 import { useSelector } from 'react-redux';
 
 
+import { BrowserRouter as Router, Routes, Route, Link } from"react-router-dom"
+
+
 
 // Add the FontAwesome icon to the library
 library.add(faCartShopping);
+
 
 function App() {
 
@@ -20,8 +24,22 @@ function App() {
   return (
     <>
   <Header></Header> 
-   {  change.BUTTON &&<Product url='https://fakestoreapi.com/products/'></Product> }
-      {!(change.BUTTON)&&<Checkout/>}
+ 
+  <Routes>
+    <Route path='/' element={<Product url='https://fakestoreapi.com/products/'></Product>}>
+    
+    </Route>
+    <Route path='/Checkout' element={<Checkout/>}>
+    
+    
+    </Route>
+  </Routes>
+  
+  
+
+
+
+      
       
     </>
   );
